@@ -21,10 +21,11 @@ const props = defineProps<{
 
 <style scoped>
 .section-card {
-  border-radius: 12px;
-  border: 1px solid #333;
-  padding: 1.25rem;
-  background-color: #111;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem 2rem;
+  background-color: var(--bg-surface);
 }
 
 .section-card__header {

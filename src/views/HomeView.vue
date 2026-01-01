@@ -1,47 +1,49 @@
 <template>
-  <div class="home">
-    <SectionCard title="Welcome to Game Library">
-      <template #actions>
-        <RouterLink to="/catalog" class="btn">Open catalog</RouterLink>
-      </template>
+  <div class="page-layout">
+    <div class="home">
+      <SectionCard title="Welcome to Game Library">
+        <template #actions>
+          <RouterLink to="/catalog" class="btn">Open catalog</RouterLink>
+        </template>
 
-      <p>
-        Keep track of your games, personal library and wishlist in one place.
-      </p>
+        <p>
+          Keep track of your games, personal library and wishlist in one place.
+        </p>
 
-      <div class="home__links">
-        <RouterLink to="/library" class="btn btn--secondary">My library</RouterLink>
-        <RouterLink to="/wishlist" class="btn btn--secondary">Wishlist</RouterLink>
-      </div>
-    </SectionCard>
-
-    <SectionCard title="Overview">
-      <div class="home__stats">
-        <div class="stat">
-          <span class="stat__label">Games in library</span>
-          <span class="stat__value">{{ libraryGames.length }}</span>
+        <div class="home__links">
+          <RouterLink to="/library" class="btn btn--secondary">My library</RouterLink>
+          <RouterLink to="/wishlist" class="btn btn--secondary">Wishlist</RouterLink>
         </div>
-        <div class="stat">
-          <span class="stat__label">In wishlist</span>
-          <span class="stat__value">{{ wishlistGames.length }}</span>
-        </div>
-        <div class="stat">
-          <span class="stat__label">Total games</span>
-          <span class="stat__value">{{ allGames.length }}</span>
-        </div>
-      </div>
-    </SectionCard>
+      </SectionCard>
 
-    <SectionCard title="Top games">
-      <div class="home__game-list">
-        <GameCard
-          v-for="game in topGames"
-          :key="game.id"
-          :game="game"
-          :show-actions="true"
-        />
-      </div>
-    </SectionCard>
+      <SectionCard title="Overview">
+        <div class="home__stats">
+          <div class="stat">
+            <span class="stat__label">Games in library</span>
+            <span class="stat__value">{{ libraryGames.length }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">In wishlist</span>
+            <span class="stat__value">{{ wishlistGames.length }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">Total games</span>
+            <span class="stat__value">{{ allGames.length }}</span>
+          </div>
+        </div>
+      </SectionCard>
+
+      <SectionCard title="Top games">
+        <div class="home__game-row">
+          <GameCard
+            v-for="game in topGames"
+            :key="game.id"
+            :game="game"
+            :show-actions="true"
+          />
+        </div>
+      </SectionCard>
+    </div>
   </div>
 </template>
 
@@ -63,6 +65,7 @@ const topGames = computed(() => allGames.value.slice(0, 3))
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-top: 0.5rem;
 }
 
 .home__links {
@@ -70,6 +73,31 @@ const topGames = computed(() => allGames.value.slice(0, 3))
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.game-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  max-width: 100%;
+}
+
+.home__game-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  max-width: 100%;
+}
+
+.home__game-row::-webkit-scrollbar {
+  height: 6px;
+}
+.home__game-row::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 999px;
 }
 
 .btn {
@@ -109,9 +137,10 @@ const topGames = computed(() => allGames.value.slice(0, 3))
   font-weight: 600;
 }
 
-.home__game-list {
-  display: flex;
-  flex-direction: column;
+.home__game-list,
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1rem;
 }
 </style>

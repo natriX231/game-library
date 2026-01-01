@@ -2,81 +2,108 @@
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 
+Чтобы получить “стимовский” вид, нужно сделать два изменения: навбар на всю ширину окна и горизонтальный список игр.
+
+1. Навигация на всю ширину
+В App.vue поменяй разметку хедера:
+
+text
 <template>
-  <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/catalog">Catalog</RouterLink>
-      <RouterLink to="/library">Library</RouterLink>
-      <RouterLink to="/wishlist">Wishlist</RouterLink>
-    </nav>
-  </header>
-  <main>
-    <RouterView />
-  </main>
+  <div class="app-shell">
+    <header class="app-header">
+      <div id="app-header-inner">
+        <div class="app-header__left">
+          <span class="app-logo">Game Library</span>
+        </div>
+
+        <nav class="app-nav">
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/catalog">Catalog</RouterLink>
+          <RouterLink to="/library">Library</RouterLink>
+          <RouterLink to="/wishlist">Wishlist</RouterLink>
+        </nav>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  background-color: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+#app-header-inner {
+  max-width: 150%;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.app-logo {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #e5e7eb;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.app-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
 }
 
-nav a:first-of-type {
-  border: 0;
+.app-nav a {
+  position: relative;
+  padding: 0.25rem 0;
+  color: #9ca3af;
+  transition: color 0.15s ease;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.app-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  border-radius: 999px;
+  transition: width 0.15s ease;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.app-nav a:hover {
+  color: #e5e7eb;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.app-nav a.router-link-exact-active {
+  color: #ffffff;
+  font-weight: 500;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+.app-nav a.router-link-exact-active::after {
+  width: 100%;
+}
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.app-main {
+  flex: 1;
+  margin-top: 1rem;
 }
 </style>
