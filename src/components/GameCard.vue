@@ -64,9 +64,11 @@ function handleAddToWishlist() {
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
 }
+
 
 .game-card__cover {
   width: 120px;

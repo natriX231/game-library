@@ -1,48 +1,38 @@
-<script setup lang="ts">
-import { computed } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useGameStore } from '../stores/gameStore'
-import GameCard from '../components/gameCard.vue'
-import RatingBadge from '../components/RatingBadge.vue'
-
-const gameStore = useGameStore()
-const { allGames, libraryGames, wishlistGames } = storeToRefs(gameStore)
-
-const topGames = computed(() => allGames.value.slice(0, 3))
-</script>
-
 <template>
   <div class="home">
-    <section class="home__hero">
-      <h1>Game Library</h1>
+    <SectionCard title="Welcome to Game Library">
+      <template #actions>
+        <RouterLink to="/catalog" class="btn">Open catalog</RouterLink>
+      </template>
+
       <p>
         Keep track of your games, personal library and wishlist in one place.
       </p>
 
       <div class="home__links">
-        <RouterLink to="/catalog" class="btn">Open catalog</RouterLink>
         <RouterLink to="/library" class="btn btn--secondary">My library</RouterLink>
         <RouterLink to="/wishlist" class="btn btn--secondary">Wishlist</RouterLink>
       </div>
-    </section>
+    </SectionCard>
 
-    <section class="home__stats">
-      <div class="stat">
-        <span class="stat__label">Games in library</span>
-        <span class="stat__value">{{ libraryGames.length }}</span>
+    <SectionCard title="Overview">
+      <div class="home__stats">
+        <div class="stat">
+          <span class="stat__label">Games in library</span>
+          <span class="stat__value">{{ libraryGames.length }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">In wishlist</span>
+          <span class="stat__value">{{ wishlistGames.length }}</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">Total games</span>
+          <span class="stat__value">{{ allGames.length }}</span>
+        </div>
       </div>
-      <div class="stat">
-        <span class="stat__label">In wishlist</span>
-        <span class="stat__value">{{ wishlistGames.length }}</span>
-      </div>
-      <div class="stat">
-        <span class="stat__label">Total games</span>
-        <span class="stat__value">{{ allGames.length }}</span>
-      </div>
-    </section>
+    </SectionCard>
 
-    <section class="home__section">
-      <h2>Top games</h2>
+    <SectionCard title="Top games">
       <div class="home__game-list">
         <GameCard
           v-for="game in topGames"
@@ -51,20 +41,28 @@ const topGames = computed(() => allGames.value.slice(0, 3))
           :show-actions="true"
         />
       </div>
-    </section>
+    </SectionCard>
   </div>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useGameStore } from '../stores/gameStore'
+import GameCard from '../components/gameCard.vue'
+import SectionCard from '../components/SectionCard.vue'
+
+const gameStore = useGameStore()
+const { allGames, libraryGames, wishlistGames } = storeToRefs(gameStore)
+
+const topGames = computed(() => allGames.value.slice(0, 3))
+</script>
 
 <style scoped>
 .home {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-.home__hero h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  gap: 1.5rem;
 }
 
 .home__links {

@@ -1,4 +1,3 @@
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -21,7 +20,6 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
 
-/* semantic color variables for this project */
 :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
@@ -34,6 +32,20 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+}
+
+:root {
+  color-scheme: dark;
+  --bg-body: #050505;
+  --bg-surface: #111;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #22c55e;
+  --accent-secondary: #3b82f6;
+  --border-subtle: #27272a;
+  --radius-lg: 12px;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,4 +95,46 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+}
+
+a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+.btn {
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.btn--secondary {
+  background-color: var(--accent-secondary);
+  color: #fff;
+}
+
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
 }
