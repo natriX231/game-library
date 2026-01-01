@@ -26,7 +26,7 @@ export const useGameStore = defineStore('game', {
         genre: 'Action RPG',
         platform: 'PC',
         releaseYear: 2016,
-        coverUrl: 'https://via.placeholder.com/200x300?text=Dark+Souls+III',
+        coverUrl: '/src/assets/Dark_souls_3.jpg',
         rating: 9.0,
         status: 'playing',
       },
