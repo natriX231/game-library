@@ -16,7 +16,7 @@ export const useGameStore = defineStore('game', {
         genre: 'RPG',
         platform: 'PC',
         releaseYear: 2015,
-        coverUrl: 'https://via.placeholder.com/200x300?text=Witcher+3',
+        coverUrl: '/src/assets/Witcher_3.jpg',
         rating: 9.5,
         status: 'completed',
       },
