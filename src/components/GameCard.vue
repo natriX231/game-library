@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Game } from '../types/game'
 import { useGameStore } from '../stores/gameStore'
+import RatingBadge from './RatingBadge.vue'
 
 const props = defineProps<{
   game: Game
@@ -38,7 +39,8 @@ function handleAddToWishlist() {
       </p>
 
       <p class="game-card__rating">
-        Rating: {{ game.rating }}
+        Rating:
+        <RatingBadge :value="game.rating" />
       </p>
 
       <p v-if="game.status" class="game-card__status">
