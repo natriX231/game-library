@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Catalog</h1>
+    <h1>Game Detail</h1>
   </div>
 </template>
