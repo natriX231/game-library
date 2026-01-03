@@ -21,16 +21,25 @@ const filteredGames = computed(() =>
     return matchesSearch && matchesGenre
   }),
 )
+
+const genres = computed(() => {
+  const set = new Set<string>()
+  allGames.value.forEach((game) => {
+    set.add(game.genre)
+  })
+  return Array.from(set).sort()
+})
 </script>
 
 <template>
   <div class="page-layout">
     <SectionCard title="Catalog">
       <FilterBar
-        :search="search"
-        :genre="genre"
-        @update:search="value => (search = value)"
-        @update:genre="value => (genre = value)"
+      :search="search"
+      :genre="genre"
+      :genres="genres"
+      @update:search="value => (search = value)"
+      @update:genre="value => (genre = value)"
       />
     </SectionCard>
 

@@ -2,6 +2,7 @@
 const props = defineProps<{
   search: string
   genre: string
+  genres: string[]
 }>()
 
 const emit = defineEmits<{
@@ -36,8 +37,13 @@ function onGenreChange(event: Event) {
       @change="onGenreChange"
     >
       <option value="">All genres</option>
-      <option value="RPG">RPG</option>
-      <option value="Action RPG">Action RPG</option>
+      <option
+        v-for="option in genres"
+        :key="option"
+        :value="option"
+      >
+        {{ option }}
+      </option>
     </select>
   </div>
 </template>

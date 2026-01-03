@@ -6,7 +6,7 @@ const props = defineProps<{
 
 const color = computed(() => {
   if (props.value >= 9) return 'badge--high'
-  if (props.value >= 7) return 'badge--medium'
+  if (props.value >= 6) return 'badge--medium'
   return 'badge--low'
 })
 </script>
