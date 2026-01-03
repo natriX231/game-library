@@ -50,13 +50,14 @@ text
 }
 
 #app-header-inner {
-  max-width: 150%;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 
 .app-logo {
   font-weight: 600;
@@ -105,5 +106,6 @@ text
 .app-main {
   flex: 1;
   margin-top: 1rem;
+  width: 100%;
 }
 </style>

@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useGameStore } from '../stores/gameStore'
-import GameCard from '../components/gameCard.vue'
+import GameCard from '../components/GameCard.vue'
 import FilterBar from '../components/FilterBar.vue'
 import SectionCard from '../components/SectionCard.vue'
 
@@ -54,15 +54,17 @@ const genres = computed(() => {
 
 <style scoped>
 .page-layout {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 1rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .games-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  align-items: flex-start;
+  gap: 1rem 1.2rem;
 }
 
 .home__game-row {

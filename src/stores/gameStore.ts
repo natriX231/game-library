@@ -17,6 +17,7 @@ export const useGameStore = defineStore("game", {
         platform: "PC",
         releaseYear: 2015,
         coverUrl: "/src/assets/Witcher_3.jpg",
+        description: 'Story-driven open world RPG about monster hunter Geralt exploring war-torn Northern Kingdoms.',
         rating: 9.5,
         status: "completed",
       },
@@ -29,6 +30,7 @@ export const useGameStore = defineStore("game", {
         coverUrl: "/src/assets/Dark_souls_3.jpg",
         rating: 9.0,
         status: "playing",
+        description: 'Dark fantasy action RPG with challenging combat and interconnected, hostile world.',
       },
       {
         id: 3,
@@ -39,6 +41,7 @@ export const useGameStore = defineStore("game", {
         coverUrl: "/src/assets/Sekiro_art.jpg",
         rating: 9.2,
         status: "completed",
+        description: 'Fast-paced shinobi action game focused on precise parries, vertical movement and boss fights in late 1500s Japan.',
       },
       {
         id: 4,
@@ -179,6 +182,7 @@ export const useGameStore = defineStore("game", {
         coverUrl: "/src/assets/Battlefield_1.jpg",
         rating: 8.6,
         status: "completed",
+        description: 'Dark fantasy action RPG with challenging combat and interconnected world.'
       },
     ],
     libraryIds: [1, 2, 3],

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useGameStore } from '../stores/gameStore'
-import GameCard from '../components/gameCard.vue'
+import GameCard from '../components/GameCard.vue'
 import SectionCard from '../components/SectionCard.vue'
 
 const gameStore = useGameStore()

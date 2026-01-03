@@ -4,7 +4,8 @@ export interface Game {
   genre: string
   platform: string
   releaseYear: number
+  rating: number
+  status?: string
   coverUrl: string
-  rating: number       
-  status?: 'playing' | 'completed' | 'planned'
+  description?: string
 }

@@ -69,19 +69,20 @@ function handleAddToWishlist() {
   max-width: 300px;
   position: relative;
   overflow: hidden;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1.2rem;
+  padding: 0.85rem 0.9rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
   background-color: var(--bg-surface);
 }
 
 .game-card__cover {
-  width: 150px;
-  height: 160px;
+  width: 130px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
 }
+
 
 .game-card__content {
   display: flex;
@@ -92,7 +93,7 @@ function handleAddToWishlist() {
 .game-card__info {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.3rem;
 }
 
 .game-card__title {

@@ -22,7 +22,8 @@ const props = defineProps<{
 <style scoped>
 .section-card {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1350px;
+  margin: 0 auto;
   border-radius: 16px;
   border: 1px solid var(--border-subtle);
   padding: 1.5rem 2rem;
