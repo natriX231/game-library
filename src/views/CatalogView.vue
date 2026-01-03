@@ -34,40 +34,35 @@ const genres = computed(() => {
 <template>
   <div class="page-layout">
     <SectionCard title="Catalog">
-      <FilterBar
-      :search="search"
-      :genre="genre"
-      :genres="genres"
-      @update:search="value => (search = value)"
-      @update:genre="value => (genre = value)"
-      />
+      <FilterBar :search="search" :genre="genre" :genres="genres" @update:search="value => (search = value)"
+        @update:genre="value => (genre = value)" />
     </SectionCard>
 
     <SectionCard title="All games">
       <div v-if="filteredGames.length === 0">
         No games found.
       </div>
-
-      <div v-else class="game-row">
-        <GameCard
-          v-for="game in filteredGames"
-          :key="game.id"
-          :game="game"
-          :show-actions="true"
-        />
+      <div v-else class="games-row">
+        <GameCard v-for="game in filteredGames" 
+        :key="game.id" 
+        :game="game" 
+        :show-actions="true" />
       </div>
     </SectionCard>
   </div>
 </template>
 
 <style scoped>
-.game-row {
+.page-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.games-row {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  max-width: 100%;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
 .home__game-row {
@@ -77,5 +72,4 @@ const genres = computed(() => {
   padding-bottom: 0.5rem;
   max-width: 100%;
 }
-
 </style>

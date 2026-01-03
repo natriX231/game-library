@@ -15,7 +15,7 @@ const { wishlistGames } = storeToRefs(gameStore)
         Your wishlist is empty.
       </div>
 
-      <div v-else class="game-row">
+      <div v-else class="game-grid">
         <GameCard
           v-for="game in wishlistGames"
           :key="game.id"
@@ -28,20 +28,9 @@ const { wishlistGames } = storeToRefs(gameStore)
 </template>
 
 <style scoped>
-.game-row {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  max-width: 100%;
-}
-
-.home__game-row {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  max-width: 100%;
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem 1.25rem;
 }
 </style>
