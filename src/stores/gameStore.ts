@@ -1,5 +1,21 @@
 import { defineStore } from "pinia";
 import type { Game } from "../types/game";
+import Witcher3 from "@/assets/Witcher_3.jpg";
+import DarkSouls3 from "@/assets/Dark_souls_3.jpg";
+import Sekiro from "@/assets/Sekiro_art.jpg";
+import EldenRing from "@/assets/Elden_ring.jpg";
+import Hades from "@/assets/Hades_cover.jpg";
+import Dota2 from "@/assets/Dota_2.jpg";
+import Buckshot from "@/assets/buckshot.jpg";
+import Darksiders from "@/assets/Darksiders.jpg";
+import ResidentEvil7 from "@/assets/Resident_Evil_7.jpg";
+import MetroExodus from "@/assets/Metro_Exodus.png";
+import GhostTsushima from "@/assets/Ghost_of_Tsushima.jpg";
+import Detroit from "@/assets/Detroit_Become_Human.jpg";
+import WarThunder from "@/assets/War_Thunder.png";
+import Squad from "@/assets/Squad.png";
+import Outlast2 from "@/assets/Outlast2.png";
+import Battlefield1 from "@/assets/Battlefield_1.jpg";
 
 interface GameState {
   allGames: Game[];
@@ -16,7 +32,7 @@ export const useGameStore = defineStore("game", {
         genre: "RPG",
         platform: "PC",
         releaseYear: 2015,
-        coverUrl: "/src/assets/Witcher_3.jpg",
+        coverUrl: Witcher3,
         description: 'Story-driven open world RPG about monster hunter Geralt exploring war-torn Northern Kingdoms.',
         rating: 9.5,
         status: "completed",
@@ -27,7 +43,7 @@ export const useGameStore = defineStore("game", {
         genre: "Action RPG",
         platform: "PC",
         releaseYear: 2016,
-        coverUrl: "/src/assets/Dark_souls_3.jpg",
+        coverUrl: DarkSouls3,
         rating: 9.0,
         status: "playing",
         description: 'Dark fantasy action RPG with challenging combat and interconnected, hostile world.',
@@ -38,7 +54,7 @@ export const useGameStore = defineStore("game", {
         genre: "Action",
         platform: "PC",
         releaseYear: 2019,
-        coverUrl: "/src/assets/Sekiro_art.jpg",
+        coverUrl: Sekiro,
         rating: 9.2,
         status: "completed",
         description: 'Fast-paced shinobi action game focused on precise parries, vertical movement and boss fights in late 1500s Japan.',
@@ -49,7 +65,7 @@ export const useGameStore = defineStore("game", {
         genre: "Action RPG",
         platform: "PC",
         releaseYear: 2022,
-        coverUrl: "/src/assets/Elden_ring.jpg",
+        coverUrl: EldenRing,
         rating: 9.3,
         status: "planned",
       },
@@ -59,7 +75,7 @@ export const useGameStore = defineStore("game", {
         genre: "Roguelike",
         platform: "PC",
         releaseYear: 2019,
-        coverUrl: "/src/assets/Hades_cover.jpg",
+        coverUrl: Hades,
         rating: 9.1,
         status: "completed",
       },
@@ -69,7 +85,7 @@ export const useGameStore = defineStore("game", {
         genre: "MOBA",
         platform: "PC",
         releaseYear: 2013,
-        coverUrl: "/src/assets/Dota_2.jpg",
+        coverUrl: Dota2,
         rating: 9.0,
         status: "playing",
       },
@@ -80,7 +96,7 @@ export const useGameStore = defineStore("game", {
         genre: "Roguelike",
         platform: "PC",
         releaseYear: 2024,
-        coverUrl: "/src/assets/buckshot.jpg",
+        coverUrl: Buckshot,
         rating: 8.5,
         status: "planned",
       },
@@ -91,7 +107,7 @@ export const useGameStore = defineStore("game", {
         genre: "Action RPG",
         platform: "PC",
         releaseYear: 2012,
-        coverUrl: "/src/assets/Darksiders.jpg",
+        coverUrl: Darksiders,
         rating: 8.0,
         status: "completed",
       },
@@ -102,7 +118,7 @@ export const useGameStore = defineStore("game", {
         genre: "Survival Horror",
         platform: "PC",
         releaseYear: 2017,
-        coverUrl: "/src/assets/Resident_Evil_7.jpg",
+        coverUrl: ResidentEvil7,
         rating: 8.8,
         status: "completed",
       },
@@ -113,7 +129,7 @@ export const useGameStore = defineStore("game", {
         genre: "Shooter",
         platform: "PC",
         releaseYear: 2019,
-        coverUrl: "/src/assets/Metro_Exodus.png",
+        coverUrl: MetroExodus,
         rating: 8.7,
         status: "completed",
       },
@@ -124,7 +140,7 @@ export const useGameStore = defineStore("game", {
         genre: "Action Adventure",
         platform: "PlayStation",
         releaseYear: 2020,
-        coverUrl: "/src/assets/Ghost_of_Tsushima.jpg",
+        coverUrl: GhostTsushima,
         rating: 9.3,
         status: "planned",
       },
@@ -135,7 +151,7 @@ export const useGameStore = defineStore("game", {
         genre: "Adventure",
         platform: "PC",
         releaseYear: 2018,
-        coverUrl: "/src/assets/Detroit_Become_Human.jpg",
+        coverUrl: Detroit,
         rating: 9.0,
         status: "completed",
       },
@@ -146,7 +162,7 @@ export const useGameStore = defineStore("game", {
         genre: "Vehicular Combat",
         platform: "PC",
         releaseYear: 2013,
-        coverUrl: "/src/assets/War_Thunder.png",
+        coverUrl: WarThunder,
         rating: 8.2,
         status: "playing",
       },
@@ -157,7 +173,7 @@ export const useGameStore = defineStore("game", {
         genre: "Tactical Shooter",
         platform: "PC",
         releaseYear: 2020,
-        coverUrl: "/src/assets/Squad.png",
+        coverUrl: Squad,
         rating: 8.3,
         status: "playing",
       },
@@ -168,7 +184,7 @@ export const useGameStore = defineStore("game", {
         genre: "Horror",
         platform: "PC",
         releaseYear: 2017,
-        coverUrl: "/src/assets/Outlast2.png",
+        coverUrl: Outlast2,
         rating: 8.0,
         status: "completed",
       },
@@ -179,7 +195,7 @@ export const useGameStore = defineStore("game", {
         genre: "Shooter",
         platform: "PC",
         releaseYear: 2016,
-        coverUrl: "/src/assets/Battlefield_1.jpg",
+        coverUrl: Battlefield1,
         rating: 8.6,
         status: "completed",
         description: 'Dark fantasy action RPG with challenging combat and interconnected world.'
