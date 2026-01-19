@@ -22,46 +22,93 @@ function onGenreChange(event: Event) {
 </script>
 
 <template>
-  <div class="filters">
-    <input
-      type="text"
-      class="filters__search"
-      placeholder="Search by title..."
-      :value="search"
-      @input="onSearchChange"
-    />
+  <div class="filter-bar">
+    <div class="filter-bar__search">
+      <span class="filter-bar__icon">🔍</span>
+      <input
+        type="text"
+        class="filter-bar__input"
+        :value="search"
+        placeholder="Search by title..."
+        @input="$emit('update:search', ($event.target as HTMLInputElement).value)"
+      />
+    </div>
 
-    <select
-      class="filters__genre"
-      :value="genre"
-      @change="onGenreChange"
-    >
-      <option value="">All genres</option>
-      <option
-        v-for="option in genres"
-        :key="option"
-        :value="option"
+    <div class="filter-bar__select-wrapper">
+      <select
+        class="filter-bar__select"
+        :value="genre"
+        @change="$emit('update:genre', ($event.target as HTMLSelectElement).value)"
       >
-        {{ option }}
-      </option>
-    </select>
+        <option value="">All genres</option>
+        <option
+          v-for="option in genres"
+          :key="option"
+          :value="option"
+        >
+          {{ option }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.filters {
+.filter-bar {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  align-items: center;
 }
 
-.filters__search {
+.filter-bar__search {
   flex: 1;
-  padding: 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 25px;
+  background-color: #0b1120;
+  border: 3px solid var(--border-subtle);
 }
 
-.filters__genre {
-  min-width: 150px;
-  padding: 0.25rem 0.5rem;
+.filter-bar__icon {
+  font-size: 0.9rem;
+  opacity: 1;
+}
+
+.filter-bar__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.filter-bar__input::placeholder {
+  color: var(--text-muted);
+}
+
+.filter-bar__select-wrapper {
+  min-width: 180px;
+}
+
+.filter-bar__select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 3px solid var(--border-subtle);
+  background-color: #020617;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #9ca3af 50%);
+  background-position: calc(100% - 14px) 50%, calc(100% - 9px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.filter-bar__select:hover {
+  border-color: var(--accent-secondary);
 }
 </style>

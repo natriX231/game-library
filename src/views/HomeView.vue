@@ -1,3 +1,20 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useGameStore } from '../stores/gameStore'
+import GameCard from '../components/GameCard.vue'
+import SectionCard from '../components/SectionCard.vue'
+
+const gameStore = useGameStore()
+const { allGames, libraryGames, wishlistGames } = storeToRefs(gameStore)
+
+const topGames = computed(() =>
+  [...allGames.value]
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 4)
+)
+</script>
+
 <template>
   <div class="page-layout">
     <div class="home">
@@ -47,18 +64,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { computed } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useGameStore } from '../stores/gameStore'
-import GameCard from '../components/GameCard.vue'
-import SectionCard from '../components/SectionCard.vue'
 
-const gameStore = useGameStore()
-const { allGames, libraryGames, wishlistGames } = storeToRefs(gameStore)
-
-const topGames = computed(() => allGames.value.slice(0, 3))
-</script>
 
 <style scoped>
 .home {
@@ -73,15 +79,6 @@ const topGames = computed(() => allGames.value.slice(0, 3))
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.game-row {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  max-width: 100%;
 }
 
 .home__game-row {
@@ -144,3 +141,4 @@ const topGames = computed(() => allGames.value.slice(0, 3))
   gap: 1rem;
 }
 </style>
+

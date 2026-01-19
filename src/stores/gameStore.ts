@@ -222,4 +222,5 @@ export const useGameStore = defineStore("game", {
       this.wishlistIds = this.wishlistIds.filter((gameId) => gameId !== id);
     },
   },
+  persist: true,
 });
