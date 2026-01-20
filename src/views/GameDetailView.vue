@@ -52,9 +52,9 @@ function goBack() {
     <section v-if="game && game.trailerUrl" class="trailer-section">
       <h2 class="trailer-section__title">Trailer</h2>
       <a :href="game.trailerUrl" target="_blank" rel="noopener noreferrer" class="trailer-btn">
-        ▶ Watch Trailer on YouTube
-      </a>
-    </section>
+    ▶ Watch Trailer on YouTube
+  </a>
+</section>
   </div>
 </template>
 
