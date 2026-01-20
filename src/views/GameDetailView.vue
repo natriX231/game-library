@@ -51,15 +51,9 @@ function goBack() {
 
     <section v-if="game && game.trailerUrl" class="trailer-section">
       <h2 class="trailer-section__title">Trailer</h2>
-      <div class="video-container">
-        <iframe
-          :src="game.trailerUrl"
-          class="video-player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
+      <a :href="game.trailerUrl" target="_blank" rel="noopener noreferrer" class="trailer-btn">
+        ▶ Watch Trailer on YouTube
+      </a>
     </section>
   </div>
 </template>
@@ -126,24 +120,19 @@ function goBack() {
   color: var(--text-main);
 }
 
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
+.trailer-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #ef4444;
+  color: white;
+  text-decoration: none;
   border-radius: 8px;
-  background-color: #000;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
-.video-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
+.trailer-btn:hover {
+  background-color: #dc2626;
 }
 
 @media (max-width: 768px) {
