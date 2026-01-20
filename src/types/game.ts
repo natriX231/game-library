@@ -7,5 +7,6 @@ export interface Game {
   rating: number
   status?: string
   coverUrl: string
+  trailerUrl?: string
   description?: string
 }
